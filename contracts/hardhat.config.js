@@ -13,7 +13,7 @@ const MAINNET_RPC_URL =
     "https://eth-mainnet.alchemyapi.io/v2/your-api-key"
 const SEPOLIA_RPC_URL =
     process.env.SEPOLIA_RPC_URL || "https://eth-sepolia.g.alchemy.com/v2/YOUR-API-KEY"
-const PRIVATE_KEY = process.env.PRIVATE_KEY || "0x"
+const PRIVATE_KEY = process.env.PRIVATE_KEY
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "Your etherscan API key"
 const REPORT_GAS = process.env.REPORT_GAS || false
 
@@ -28,21 +28,21 @@ module.exports = {
         },
         sepolia: {
             url: SEPOLIA_RPC_URL,
-            accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
+            accounts: [PRIVATE_KEY],
             saveDeployments: true,
             chainId: 11155111,
         },
         mainnet: {
             url: MAINNET_RPC_URL,
-            accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
+            accounts: [PRIVATE_KEY],
             saveDeployments: true,
             chainId: 1,
         },
         "polygon-mumbai": {
             url: process.env.POLYGON_MUMBAI_RPC_URL,
-            accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
+            accounts:[PRIVATE_KEY],
             saveDeployments: true,
-            chainId: 137,
+            chainId: 80001,
         },
     },
     etherscan: {

@@ -1,7 +1,13 @@
 {
     "80001": {
         "NftMarketplace": [
-            "0x3e4BF24914216e6c85BA1e118e9Db50663B4c8c2"
+            "0x3e4BF24914216e6c85BA1e118e9Db50663B4c8c2",
+            "0x4EF600117D5ED1005afd82974AF5049b7bf30CfF"
+        ]
+    },
+    "11155111": {
+        "NftMarketplace": [
+            "0x2E8E879CB7BE343937E2D1Ad56c029dfec9a9ed9"
         ]
     }
 }

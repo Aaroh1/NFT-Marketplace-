@@ -21,8 +21,8 @@ const networkConfig = {
     raffleEntranceFee: "100000000000000000", // 0.1 ETH
     callbackGasLimit: "500000", // 500,000 gas
   },
-  137: {
-    name: "polygon-mumbai",
+  80001: {
+    name: "mumbai",
     subscriptionId: "588",
     gasLane:
       "0x4b09e658ed251bcafeebbc69400383d49f344ace09b9576fe248bb02c003fe9f", // 500 gwei
@@ -39,17 +39,12 @@ const networkConfig = {
 const developmentChains = ["hardhat", "localhost"]
 const VERIFICATION_BLOCK_CONFIRMATIONS = 6
 const frontEndContractsFile = "../frontend/constants/networkMapping.json"
-const frontEndContractsFile2 =
-    "../theGraph/constants/networkMapping.json"
 const frontEndAbiLocation = "../frontend/constants/"
-const frontEndAbiLocation2 = "../theGraph/constants/"
 
 module.exports = {
     networkConfig,
     developmentChains,
     VERIFICATION_BLOCK_CONFIRMATIONS,
     frontEndContractsFile,
-    frontEndContractsFile2,
     frontEndAbiLocation,
-    frontEndAbiLocation2,
 }

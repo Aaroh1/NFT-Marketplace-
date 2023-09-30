@@ -15,71 +15,75 @@ const SEPOLIA_RPC_URL =
     process.env.SEPOLIA_RPC_URL || "https://eth-sepolia.g.alchemy.com/v2/YOUR-API-KEY"
 const PRIVATE_KEY = process.env.PRIVATE_KEY
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "Your etherscan API key"
-const REPORT_GAS = process.env.REPORT_GAS || false
+const POLYGONSCAN_API_KEY =
+  process.env.POLYGONSCAN_API_KEY || "Your etherscan API key";
+const REPORT_GAS = process.env.REPORT_GAS || false;
 
 module.exports = {
-    defaultNetwork: "hardhat",
-    networks: {
-        hardhat: {
-            chainId: 31337,
-        },
-        localhost: {
-            chainId: 31337,
-        },
-        sepolia: {
-            url: SEPOLIA_RPC_URL,
-            accounts: [PRIVATE_KEY],
-            saveDeployments: true,
-            chainId: 11155111,
-        },
-        mainnet: {
-            url: MAINNET_RPC_URL,
-            accounts: [PRIVATE_KEY],
-            saveDeployments: true,
-            chainId: 1,
-        },
-        "polygon-mumbai": {
-            url: process.env.POLYGON_MUMBAI_RPC_URL,
-            accounts:[PRIVATE_KEY],
-            saveDeployments: true,
-            chainId: 80001,
-        },
+  defaultNetwork: "hardhat",
+  networks: {
+    hardhat: {
+      chainId: 31337,
     },
-    etherscan: {
-        apiKey: {
-            sepolia: ETHERSCAN_API_KEY,
-        },
+    localhost: {
+      chainId: 31337,
     },
-    gasReporter: {
-        enabled: REPORT_GAS,
-        currency: "USD",
-        outputFile: "gas-report.txt",
-        noColors: true,
+    sepolia: {
+      url: SEPOLIA_RPC_URL,
+      accounts: [PRIVATE_KEY],
+      saveDeployments: true,
+      chainId: 11155111,
     },
-    contractSizer: {
-        runOnCompile: false,
-        only: ["NftMarketplace"],
+    mainnet: {
+      url: MAINNET_RPC_URL,
+      accounts: [PRIVATE_KEY],
+      saveDeployments: true,
+      chainId: 1,
     },
-    namedAccounts: {
-        deployer: {
-            default: 0, // here this will by default take the first account as deployer
-            1: 0, // similarly on mainnet it will take the first account as deployer. Note though that depending on how hardhat network are configured, the account 0 on one network can be different than on another
-        },
-        player: {
-            default: 1,
-        },
+    mumbai: {
+      url: process.env.POLYGON_MUMBAI_RPC_URL,
+      accounts: [PRIVATE_KEY],
+      saveDeployments: true,
+      chainId: 80001,
     },
-    solidity: {
-        compilers: [
-            {
-                version: "0.8.7",
-            },
-            {
-                version: "0.4.24",
-            },
-        ],
+  },
+  etherscan: {
+    apiKey: {
+      sepolia: ETHERSCAN_API_KEY,
+      polygonMumbai: POLYGONSCAN_API_KEY,
     },
-    mocha: {
-        timeout: 200000, // 200 seconds max for running tests
+    customChains: [],
+  },
+  gasReporter: {
+    enabled: REPORT_GAS,
+    currency: "USD",
+    outputFile: "gas-report.txt",
+    noColors: true,
+  },
+  contractSizer: {
+    runOnCompile: false,
+    only: ["NftMarketplace"],
+  },
+  namedAccounts: {
+    deployer: {
+      default: 0, // here this will by default take the first account as deployer
+      1: 0, // similarly on mainnet it will take the first account as deployer. Note though that depending on how hardhat network are configured, the account 0 on one network can be different than on another
     },
-}
+    player: {
+      default: 1,
+    },
+  },
+  solidity: {
+    compilers: [
+      {
+        version: "0.8.7",
+      },
+      {
+        version: "0.4.24",
+      },
+    ],
+  },
+  mocha: {
+    timeout: 200000, // 200 seconds max for running tests
+  },
+};
